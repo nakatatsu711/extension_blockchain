@@ -1,4 +1,8 @@
 ## 概要
+Pythonでブロックチェーンを作ります。
+
+<br>
+
 既に実装済みの[プレーンブロックチェーン](https://github.com/nakatatsu711/plain_blockchain)の持つ機能は以下の通りです。
 - ブロックの構築
 - ターゲットの計算
