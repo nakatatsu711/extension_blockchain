@@ -13,7 +13,7 @@ MAX_32BIT = 0xffffffff
 
 class Block():
     '''
-    個々のブロックを定義
+    個々のブロックを構築
     '''
 
     def __init__(self, index, prev_hash, data, timestamp, bits):
@@ -57,7 +57,7 @@ class Block():
 
     def calc_blockhash(self):
         '''
-        ブロックヘッダを構築し、ハッシュ化
+        ブロックヘッダを構築し、ハッシュ化する
         '''
 
         blockheader = str(self.index) + str(self.prev_hash) + str(self.data) + \
@@ -140,7 +140,7 @@ class MerkleTree():
 
 class Blockchain():
     '''
-    ブロックの関係性を定義
+    全体の流れを制御
     '''
 
     def __init__(self, initial_bits):
@@ -168,7 +168,7 @@ class Blockchain():
 
     def mining(self, block):
         '''
-        ブロックをつなげる
+        マイニングを行う
         '''
 
         start_time = int(time.time() * 1000)
@@ -190,7 +190,7 @@ class Blockchain():
 
     def create_genesis(self):
         '''
-        ジェネシスブロックを生成
+        ジェネシスブロックを作成
         '''
 
         genesis_block = Block(0,
@@ -200,7 +200,7 @@ class Blockchain():
 
     def add_newblock(self, i):
         '''
-        Blockクラスをインスタンス化
+        新規ブロックを作成
         '''
 
         last_block = self.chain[-1]
@@ -264,10 +264,10 @@ class Blockchain():
 if __name__ == '__main__':
     # Blockchainクラスをインスタンス化
     bc = Blockchain(INITIAL_BITS)
-    # ジェネシスブロックを生成
+    # ジェネシスブロックを作成
     print('ジェネシスブロックを作成中・・・')
     bc.create_genesis()
-    # 新規ブロックを生成
+    # 新規ブロックを作成
     for i in range(30):
         print(str(i + 2) + '番目のブロックを作成中・・・')
         bc.add_newblock(i)
